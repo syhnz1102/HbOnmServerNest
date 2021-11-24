@@ -1,14 +1,13 @@
 import { Controller, Get } from '@nestjs/common';
 import { AdminService } from './admin.service';
-import { AdminDto } from './admin.dto';
 
 @Controller()
 export class AdminController {
   constructor(private readonly Service: AdminService) {}
 
   @Get('/adminList')
-  getAdminList(AdminDto : AdminDto) {
-    return this.Service.getAdminList(AdminDto);
+  getAdminList() {
+    return this.Service.getAdminList();
   }
 
   @Get('/adminInfo')

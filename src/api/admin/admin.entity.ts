@@ -1,15 +1,15 @@
-import { BeforeInsert, Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { BeforeInsert, Column, Entity, PrimaryGeneratedColumn, CreateDateColumn, UpdateDateColumn, PrimaryColumn } from "typeorm";
 import * as argon2 from "argon2";
 
-@Entity("admin")
+@Entity({name:"tbl_admin_info", schema: "platform"})
 export class AdminEntity {
   // @BeforeInsert()
   // async hashPassword() {
   //   this.password = await argon2.hash(this.password);
   // }
 
-  @PrimaryGeneratedColumn()
-  adminid: string;
+  @PrimaryColumn()
+  admin_id: string;
 
   @Column()
   password: string;
@@ -18,11 +18,11 @@ export class AdminEntity {
   note: string;
 
   @Column()
-  create_date: Date;
+  create_date: string;
 
   @Column()
-  update_date: Date;
+  update_date: string;
 
   @Column()
-  adminname: string;
+  admin_name: string;
 }

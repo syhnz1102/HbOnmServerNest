@@ -13,45 +13,44 @@ import { TransactionService } from './api/transaction/transaction.service';
 import { UserService } from './api/user/user.service';
 import { StatisticsService } from './api/statistics/statistics.service';
 import { AdminRepository } from './api/admin/admin.repository';
-import { Test01Controller } from './test01/test01.controller';
-import { Test01Service } from './test01/test01.service';
-import { Test01Module } from './test01/test01.module';
-import { Test01Module } from './test01/test01.module';
+import { AdminEntity } from './api/admin/admin.entity';
+
+import { AdminModule } from './api/admin/admin.module';
+
 @Module({
   imports: [
-    TypeOrmModule.forRoot(),
     // TypeOrmModule.forRoot({
-    //   "type": "postgres",
-    //   "host": "localhost",
-    //   "port": 5432,
-    //   "username": "postgres",
-    //   "password": "skfflwl1!",
-    //   "database": "postgres",
-    //   "extra": {
-    //     "ssl": {
-    //         "rejectUnauthorized": false
-    //     }
-    // },
-    //   "entities": [],
-    // })
-    TypeOrmModule.forFeature([AdminRepository]),
-    Test01Module
+    //   autoLoadEntities: true    
+    // }),
+    TypeOrmModule.forRoot(),
+    AdminModule,
+    // TypeOrmModule.forRoot({
+    // "type": "postgres",
+    // "host": "localhost",
+    // "port": 5432,
+    // "username": "postgres",
+    // "password": "skfflwl1!",
+    // "database": "postgres",
+    // "synchronize": true,
+    // "logging": false,
+    // "entities": [
+    //     "dist/**/**/**.entity{.ts,.js}"
+    // ]}),
+    // TypeOrmModule.forFeature([AdminEntity]),
   ],
   controllers: [
-    AdminController,
-    UserController,
-    TransactionController,
-    StatisticsController,
-    AuthController,
-    Test01Controller
+    // AdminController,
+    // UserController,
+    // TransactionController,
+    // StatisticsController,
+    // AuthController,
   ],
   providers: [
-    AdminService,
-    UserService,
-    TransactionService,
-    StatisticsService,
-    AuthService,
-    Test01Service
+    // AdminService,
+    // UserService,
+    // TransactionService,
+    // StatisticsService,
+    // AuthService,
   ]
 })
 export class AppModule {}
